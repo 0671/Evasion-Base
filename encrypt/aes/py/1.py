@@ -11,7 +11,7 @@ def pad(s):
 	ps = s+p*chr(p) # 其实除了使用chr(p)填充,也可以用任何其他字符
 	return ps
 
-def aesenc(s,key):
+def aes_encrypy(s,key):
 	k = hashlib.sha256(KEY).digest()
 	iv = 16 * '\x00'
 	s = pad(s)
@@ -34,7 +34,7 @@ def main():
 	with open(fn,'r') as f:
 		data = f.read()
 		print('aeskey[] = '+to16(KEY))
-		print('payload[] = '+to16(aesenc(data,KEY)))
+		print('payload[] = '+to16(aes_encrypy(data,KEY)))
 
 if __name__ == '__main__':
 	main()
